@@ -4,6 +4,10 @@
     <x-slot name="title">Dashboard</x-slot>
     <!--end::Url Title-->
 
+    <!--begin::Toolbar  -->
+    <x-backend.toolbar title="Dashboard" :breadcrumbs="[['label' => 'Home', 'url' => route('dashboard')], ['label' => 'Dashboard', 'active' => true]]" />
+    <!--end::Toolbar -->
+
     <div class="post d-flex flex-column-fluid" id="kt_post">
         <!--begin::Container-->
         <div id="kt_content_container" class="container-xxl">
