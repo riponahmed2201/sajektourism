@@ -8,5 +8,5 @@ Route::get('/', function () {
 });
 
 //Login
-// Route::get('/', [AuthController::class, 'showLoginForm']);
-// Route::post('login', [AuthController::class, 'login'])->name('login');
+Route::get('login', [AuthController::class, 'showLoginForm']);
+Route::post('login', [AuthController::class, 'login'])->name('login');
