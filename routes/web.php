@@ -2,7 +2,10 @@
 
 use App\Http\Controllers\Backend\AuthController;
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Frontend\HomeController;
 use Illuminate\Support\Facades\Route;
+
+Route::get('/', [HomeController::class, 'index']);
 
 //Login
 Route::get('login', [AuthController::class, 'showLoginForm']);
