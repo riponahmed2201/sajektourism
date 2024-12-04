@@ -22,7 +22,7 @@
         <!--end::Aside mobile toggle-->
         <!--begin::Mobile logo-->
         <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
-            <a href="../../demo1/dist/index.html" class="d-lg-none">
+            <a href="/dashboard" class="d-lg-none">
                 <img alt="Logo" src="assets/backend/media/logos/logo-2.svg" class="h-30px" />
             </a>
         </div>
@@ -43,7 +43,7 @@
                         <div data-kt-menu-trigger="click" data-kt-menu-placement="bottom-start"
                             class="menu-item here show menu-lg-down-accordion me-lg-1">
                             <span class="menu-link py-3">
-                                <span class="menu-title">Dashboards</span>
+                                <span class="menu-title">Dashboard</span>
                                 <span class="menu-arrow d-lg-none"></span>
                             </span>
                         </div>
