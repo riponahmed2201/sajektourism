@@ -11,4 +11,24 @@ class HomeController extends Controller
     {
         return view('frontend.home');
     }
+
+    public function showContactPage()
+    {
+        return view('frontend.pages.contact');
+    }
+
+    public function showAboutPage()
+    {
+        return view('frontend.pages.about');
+    }
+
+    public function showAlbumPage()
+    {
+        return view('frontend.pages.about');
+    }
+
+    public function showDailyNewsPage()
+    {
+        return view('frontend.pages.daily-news');
+    }
 }

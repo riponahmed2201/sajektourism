@@ -9,8 +9,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/logo/favicon.ico') }}">
+
     <link href='../../css?family=Lato:300,400,700,900,400italic' rel='stylesheet' type='text/css'>
-    <link href="assets/frontend/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ asset('assets/frontend/font-awesome/4.2.0/css/font-awesome.min.css') }}" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/css/bootstrap.min.css') }}" media="screen">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/css/jquery.bxslider.css') }}" media="screen">
@@ -33,7 +35,7 @@
         <!-- end Header -->
 
         <!-- block-wrapper-section -->
-            {{ $slot }}
+        {{ $slot }}
         <!-- End block-wrapper-section -->
 
         <!-- start footer -->

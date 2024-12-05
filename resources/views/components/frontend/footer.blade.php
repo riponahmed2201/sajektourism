@@ -5,10 +5,9 @@
                 <div class="col-md-3">
                     <div class="widget text-widget">
                         <h1>About</h1>
-                        <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.
-                            Aenean dignissim pellentesque felis. </p>
-                        <p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a,
-                            ultricies in, diam. Sed arcu. </p>
+                        <p>Sajek Tourism, a sister concern of Booking Paper Holiday, has been working in Sajek with
+                            great reputation and trust.</p>
+
                     </div>
                     <div class="widget social-widget">
                         <h1>Stay Connected</h1>
@@ -113,7 +112,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="widget flickr-widget">
-                        <h1>Flickr Photos</h1>
+                        <h1>Tourism Photos</h1>
                         <ul class="flickr-list">
                             <li><a href="#"><img src="assets/frontend/upload/flickr/1.jpg" alt=""></a>
                             </li>
@@ -136,15 +135,15 @@
         <div class="footer-last-line">
             <div class="row">
                 <div class="col-md-6">
-                    <p>&copy; COPYRIGHT {{ date('Y') }} sajektourism.com</p>
+                    <p>&copy; COPYRIGHT {{ date('Y') }} SAJEK TOURISM</p>
                 </div>
                 <div class="col-md-6">
                     <nav class="footer-nav">
                         <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="index.html">Purchase Theme</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/daily-news">Daily News</a></li>
+                            <li><a href="/about">About</a></li>
+                            <li><a href="/contact">Contact</a></li>
                         </ul>
                     </nav>
                 </div>

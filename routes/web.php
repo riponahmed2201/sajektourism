@@ -11,6 +11,16 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('login', [AuthController::class, 'showLoginForm']);
 Route::post('login', [AuthController::class, 'login'])->name('login');
 
+//Frontend Routes
+Route::get('resort', [HomeController::class, 'showResortPage']);
+Route::get('daily-news', [HomeController::class, 'showDailyNewsPage']);
+Route::get('tv-show', [HomeController::class, 'showTvShowPage']);
+Route::get('youtube', [HomeController::class, 'showYoutubePage']);
+Route::get('album', [HomeController::class, 'showAlbumPage']);
+Route::get('package', [HomeController::class, 'showPackagePage']);
+Route::get('about', [HomeController::class, 'showAboutPage']);
+Route::get('contact', [HomeController::class, 'showContactPage']);
+
 //Admin Route Here
 Route::group(['middleware' => 'auth'], function () {
     Route::get('dashboard', DashboardController::class)->name('dashboard');

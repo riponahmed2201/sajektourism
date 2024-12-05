@@ -9,7 +9,7 @@
                     <div class="col-md-9">
                         <ul class="top-line-list">
                             <li>
-                                <span class="city-weather">London, United Kingdom</span>
+                                <span class="city-weather">64/68 Eastern Commercial Complex, Kamlapur, Dhaka</span>
                                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="30px"
                                     height="24px" viewbox="0 0 512 512" enable-background="new 0 0 512 512"
@@ -34,12 +34,8 @@
                                         c23.291,12.375,42.416,31.542,54.457,55.063C378.938,290.188,389.209,288,400,288c44.188,0,80,35.812,80,80S444.188,448,400,448z">
                                     </path>
                                 </svg>
-                                <span class="cel-temperature">+7</span>
                             </li>
-                            <li><span class="time-now">Thursday 8 January 2015 / 21:20</span></li>
-                            <li><a href="#">Log In</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                            <li><a href="#">Purchase Theme</a></li>
+                            <li><span class="time-now">{{ date('l j F Y / H:i') }}</span></li>
                         </ul>
                     </div>
                     <div class="col-md-3">
@@ -65,11 +61,12 @@
                     <div class="owl-carousel" data-num="3">
 
                         <div class="item list-post">
-                            <img src="assets/frontend/upload/news-posts/listw5.jpg" alt="">
+                            <img src="{{ asset('assets/frontend/upload/resort/Abakash Emmanuel Eco Resort.jpg') }}"
+                                alt="Abakash Emmanuel Eco Resort">
                             <div class="post-content">
-                                <a href="food.html">Food &amp; Health</a>
-                                <h2><a href="single-post.html">Donec odio. Quisque volutpat mattis eros. Nullam
-                                        malesuada </a></h2>
+                                <a href="food.html">Abakash Emmanuel Eco Resort</a>
+                                <h2><a href="single-post.html">Abakash Emmanuel Eco Resort offers a serene,
+                                        nature-filled escape with eco-friendly amenities.</a></h2>
                                 <ul class="post-tags">
                                     <li><i class="fa fa-clock-o"></i>27 may 2013</li>
                                 </ul>
@@ -133,7 +130,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="/">
-                        <img src="assets/frontend/images/small-logo.png" alt="">
+                        <img src="{{ asset('assets/logo/logo.svg') }}" alt="Logo">
                     </a>
                 </div>
 
@@ -142,14 +139,14 @@
                     <ul class="nav navbar-nav navbar-right">
 
                         <li><a class="home" href="/">Home</a></li>
-                        <li><a class="world" href="/">Resort</a></li>
-                        <li><a class="travel" href="/">Daily News </a></li>
-                        <li><a class="fashion" href="/">Tv Show</a></li>
-                        <li><a class="video" href="/">Youtube </a></li>
-                        <li><a class="sport" href="/">Album</a></li>
-                        <li><a class="tech" href="/">Package</a></li>
-                        <li><a class="food" href="/">About Us</a></li>
-                        <li><a class="fashion" href="/">Contact Us</a></li>
+                        <li><a class="world" href="/resort">Resort</a></li>
+                        <li><a class="travel" href="/daily-news">Daily News</a></li>
+                        <li><a class="fashion" href="/tv-show">Tv Show</a></li>
+                        <li><a class="video" href="/youtube">Youtube</a></li>
+                        <li><a class="sport" href="/album">Album</a></li>
+                        <li><a class="tech" href="/package">Package</a></li>
+                        <li><a class="food" href="/about">About Us</a></li>
+                        <li><a class="fashion" href="/contact">Contact Us</a></li>
                     </ul>
 
                 </div>
