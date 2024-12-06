@@ -12,7 +12,8 @@
                                 <ul class="bxslider">
                                     <li>
                                         <div class="news-post image-post">
-                                            <img src="{{ asset('assets/frontend/upload/resort/Abakash Emmanuel Eco Resort.jpg') }}"
+                                            <img style="width: 653px; height:478px"
+                                                src="{{ asset('assets/frontend/upload/resort/Abakash Emmanuel Eco Resort.jpg') }}"
                                                 alt="Abakash Emmanuel Eco Resort">
                                             <div class="hover-box">
                                                 <span class="top-stories">TOP RESORT</span>
@@ -34,7 +35,8 @@
                                     </li>
                                     <li>
                                         <div class="news-post image-post">
-                                            <img src="{{ asset('assets/frontend/upload/resort/Sajek Eco Valley Resort.jpg') }}"
+                                            <img style="width: 653px; height:478px"
+                                                src="{{ asset('assets/frontend/upload/resort/Sajek Eco Valley Resort.jpg') }}"
                                                 alt="">
                                             <div class="hover-box">
                                                 <span class="top-stories">TOP RESORT</span>
@@ -56,7 +58,8 @@
                                     </li>
                                     <li>
                                         <div class="news-post image-post">
-                                            <img src="{{ asset('assets/frontend/upload/resort/Meghchut Resort.jpg') }}"
+                                            <img style="width: 653px; height:478px"
+                                                src="{{ asset('assets/frontend/upload/resort/Meghchut Resort.jpg') }}"
                                                 alt="">
                                             <div class="hover-box">
                                                 <span class="top-stories">TOP RESORT</span>
