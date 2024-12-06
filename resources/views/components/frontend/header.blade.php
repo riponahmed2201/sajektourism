@@ -64,47 +64,63 @@
                             <img src="{{ asset('assets/frontend/upload/resort/Abakash Emmanuel Eco Resort.jpg') }}"
                                 alt="Abakash Emmanuel Eco Resort">
                             <div class="post-content">
-                                <a href="food.html">Abakash Emmanuel Eco Resort</a>
-                                <h2><a href="single-post.html">Abakash Emmanuel Eco Resort offers a serene,
+                                <a href="javascript:void(0)">Abakash Emmanuel Eco Resort</a>
+                                <h2><a href="javascript:void(0)">Abakash Emmanuel Eco Resort offers a serene,
                                         nature-filled escape with eco-friendly amenities.</a></h2>
                                 <ul class="post-tags">
-                                    <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                    <li><i class="fa fa-clock-o"></i>{{ date('d M Y') }}</li>
                                 </ul>
                             </div>
                         </div>
 
                         <div class="item list-post">
-                            <img src="assets/frontend/upload/news-posts/listw4.jpg" alt="">
+                            <img src="{{ asset('assets/frontend/upload/resort/Sajek Eco Valley Resort.jpg') }}"
+                                alt="Sajek Eco Valley Resort">
                             <div class="post-content">
-                                <a href="business.html">business</a>
-                                <h2><a href="single-post.html">Nullam malesuada erat ut turpis. Suspendisse urna
-                                        nibh</a></h2>
+                                <a href="javascript:void(0)">Sajek Eco Valley Resort</a>
+                                <h2><a href="javascript:void(0)">Sajek Eco Valley Resort offers a tranquil stay amidst
+                                        the breathtaking beauty of Sajek.</a></h2>
                                 <ul class="post-tags">
-                                    <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                    <li><i class="fa fa-clock-o"></i>{{ date('d M Y') }}</li>
                                 </ul>
                             </div>
                         </div>
 
                         <div class="item list-post">
-                            <img src="assets/frontend/upload/news-posts/listw3.jpg" alt="">
+                            <img src="{{ asset('assets/frontend/upload/resort/Meghchut Resort.jpg') }}"
+                                alt="Meghchut Resort">
                             <div class="post-content">
-                                <a href="travel.html">travel</a>
-                                <h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies
-                                        in, diam. </a></h2>
+                                <a href="javascript:void(0)">Meghchut Resort</a>
+                                <h2><a href="javascript:void(0)">Meghchut Resort promises a cozy retreat above the
+                                        clouds in Sajek.</a></h2>
                                 <ul class="post-tags">
-                                    <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                    <li><i class="fa fa-clock-o"></i>{{ date('d M Y') }}</li>
                                 </ul>
                             </div>
                         </div>
 
                         <div class="item list-post">
-                            <img src="assets/frontend/upload/news-posts/listw2.jpg" alt="">
+                            <img src="{{ asset('assets/frontend/upload/resort/Cloud Paradise Resort Sajek.jpg') }}"
+                                alt="Cloud Paradise Resort Sajek">
                             <div class="post-content">
-                                <a href="travel.html">travel</a>
-                                <h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies
-                                        in, diam. </a></h2>
+                                <a href="javascript:void(0)">Cloud Paradise Resort Sajek</a>
+                                <h2><a href="javascript:void(0)">Cloud Paradise Resort offers a heavenly escape amidst
+                                        Sajek's scenic beauty.</a></h2>
                                 <ul class="post-tags">
-                                    <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                    <li><i class="fa fa-clock-o"></i>{{ date('d M Y') }}</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="item list-post">
+                            <img src="{{ asset('assets/frontend/upload/resort/Niribili Resort Sajek.jpg') }}"
+                                alt="Niribili Resort Sajek">
+                            <div class="post-content">
+                                <a href="javascript:void(0)">Niribili Resort Sajek</a>
+                                <h2><a href="javascript:void(0)">Niribili Resort offers a peaceful retreat amidst
+                                        Sajek's natural beauty.</a></h2>
+                                <ul class="post-tags">
+                                    <li><i class="fa fa-clock-o"></i>{{ date('d M Y') }}</li>
                                 </ul>
                             </div>
                         </div>

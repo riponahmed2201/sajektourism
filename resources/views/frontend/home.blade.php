@@ -12,20 +12,20 @@
                                 <ul class="bxslider">
                                     <li>
                                         <div class="news-post image-post">
-                                            <img src="assets/frontend/upload/news-posts/slide1.jpg" alt="">
+                                            <img src="{{ asset('assets/frontend/upload/resort/Abakash Emmanuel Eco Resort.jpg') }}"
+                                                alt="Abakash Emmanuel Eco Resort">
                                             <div class="hover-box">
-                                                <span class="top-stories">TOP STORIES</span>
+                                                <span class="top-stories">TOP RESORT</span>
                                                 <div class="inner-hover">
-                                                    <a class="category-post tech" href="tech.html">Tech</a>
-                                                    <h2><a href="single-post.html">Phasellus ultrices nulla quis
-                                                            nibh. Quisque a lectus. </a></h2>
+                                                    <a class="category-post tech" href="tech.html">Abakash Emmanuel Eco
+                                                        Resort</a>
+                                                    <h2><a href="single-post.html">Abakash Emmanuel Eco Resort offers a
+                                                            serene,
+                                                            nature-filled escape with eco-friendly amenities.</a></h2>
                                                     <ul class="post-tags">
-                                                        <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                                        <li><i class="fa fa-clock-o"></i>{{ date('d M Y') }}</li>
                                                         <li><i class="fa fa-user"></i>by <a href="#">John
                                                                 Doe</a></li>
-                                                        <li><a href="#"><i
-                                                                    class="fa fa-comments-o"></i><span>23</span></a>
-                                                        </li>
                                                         <li><i class="fa fa-eye"></i>872</li>
                                                     </ul>
                                                 </div>
@@ -34,20 +34,20 @@
                                     </li>
                                     <li>
                                         <div class="news-post image-post">
-                                            <img src="assets/frontend/upload/news-posts/slide2.jpg" alt="">
+                                            <img src="{{ asset('assets/frontend/upload/resort/Sajek Eco Valley Resort.jpg') }}"
+                                                alt="">
                                             <div class="hover-box">
-                                                <span class="top-stories">TOP STORIES</span>
+                                                <span class="top-stories">TOP RESORT</span>
                                                 <div class="inner-hover">
-                                                    <a class="category-post world" href="world.html">Politic</a>
-                                                    <h2><a href="single-post.html">Phasellus ultrices nulla quis
-                                                            nibh. Quisque a lectus. </a></h2>
+                                                    <a class="category-post world" href="world.html">Sajek Eco Valley
+                                                        Resort</a>
+                                                    <h2><a href="single-post.html">Sajek Eco Valley Resort offers a
+                                                            tranquil stay amidst
+                                                            the breathtaking beauty of Sajek.</a></h2>
                                                     <ul class="post-tags">
-                                                        <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                                        <li><i class="fa fa-clock-o"></i>{{ date('d M Y') }}</li>
                                                         <li><i class="fa fa-user"></i>by <a href="#">John
                                                                 Doe</a></li>
-                                                        <li><a href="#"><i
-                                                                    class="fa fa-comments-o"></i><span>23</span></a>
-                                                        </li>
                                                         <li><i class="fa fa-eye"></i>872</li>
                                                     </ul>
                                                 </div>
@@ -56,20 +56,19 @@
                                     </li>
                                     <li>
                                         <div class="news-post image-post">
-                                            <img src="assets/frontend/upload/news-posts/slide3.jpg" alt="">
+                                            <img src="{{ asset('assets/frontend/upload/resort/Meghchut Resort.jpg') }}"
+                                                alt="">
                                             <div class="hover-box">
-                                                <span class="top-stories">TOP STORIES</span>
+                                                <span class="top-stories">TOP RESORT</span>
                                                 <div class="inner-hover">
-                                                    <a class="category-post world" href="world.html">business</a>
-                                                    <h2><a href="single-post.html">Phasellus ultrices nulla quis
-                                                            nibh. Quisque a lectus. </a></h2>
+                                                    <a class="category-post world" href="world.html">Meghchut Resort</a>
+                                                    <h2><a href="single-post.html">Meghchut Resort promises a cozy
+                                                            retreat above the
+                                                            clouds in Sajek.</a></h2>
                                                     <ul class="post-tags">
-                                                        <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                                        <li><i class="fa fa-clock-o"></i>{{ date('d M Y') }}</li>
                                                         <li><i class="fa fa-user"></i>by <a href="#">John
                                                                 Doe</a></li>
-                                                        <li><a href="#"><i
-                                                                    class="fa fa-comments-o"></i><span>23</span></a>
-                                                        </li>
                                                         <li><i class="fa fa-eye"></i>872</li>
                                                     </ul>
                                                 </div>
@@ -634,7 +633,7 @@
                     <div class="sidebar small-sidebar">
 
                         <div class="widget review-widget">
-                            <h1>Top Reviews</h1>
+                            <h1>Top News Post</h1>
                             <ul class="review-posts-list">
                                 <li>
                                     <img src="assets/frontend/upload/news-posts/rev1.jpg" alt="">
@@ -773,14 +772,6 @@
                 <div class="col-md-3 col-sm-4">
                     <!-- sidebar -->
                     <div class="sidebar large-sidebar">
-
-                        <div class="widget search-widget">
-                            <form role="search" class="search-form">
-                                <input type="text" id="search" name="search" placeholder="Search here">
-                                <button type="submit" id="search-submit"><i class="fa fa-search"></i></button>
-                            </form>
-                        </div>
-
                         <div class="widget social-widget">
                             <div class="title-section">
                                 <h1><span>Stay Connected</span></h1>
