@@ -61,7 +61,8 @@
                     <div class="owl-carousel" data-num="3">
 
                         <div class="item list-post">
-                            <img src="{{ asset('assets/frontend/upload/resort/Abakash Emmanuel Eco Resort.jpg') }}"
+                            <img style="width: 100px; height:80px"
+                                src="{{ asset('assets/frontend/upload/resort/Abakash Emmanuel Eco Resort.jpg') }}"
                                 alt="Abakash Emmanuel Eco Resort">
                             <div class="post-content">
                                 <a href="javascript:void(0)">Abakash Emmanuel Eco Resort</a>
@@ -74,7 +75,8 @@
                         </div>
 
                         <div class="item list-post">
-                            <img src="{{ asset('assets/frontend/upload/resort/Sajek Eco Valley Resort.jpg') }}"
+                            <img style="width: 100px; height:80px"
+                                src="{{ asset('assets/frontend/upload/resort/Sajek Eco Valley Resort.jpg') }}"
                                 alt="Sajek Eco Valley Resort">
                             <div class="post-content">
                                 <a href="javascript:void(0)">Sajek Eco Valley Resort</a>
@@ -87,7 +89,8 @@
                         </div>
 
                         <div class="item list-post">
-                            <img src="{{ asset('assets/frontend/upload/resort/Meghchut Resort.jpg') }}"
+                            <img style="width: 100px; height:80px"
+                                src="{{ asset('assets/frontend/upload/resort/Meghchut Resort.jpg') }}"
                                 alt="Meghchut Resort">
                             <div class="post-content">
                                 <a href="javascript:void(0)">Meghchut Resort</a>
@@ -100,7 +103,8 @@
                         </div>
 
                         <div class="item list-post">
-                            <img src="{{ asset('assets/frontend/upload/resort/Cloud Paradise Resort Sajek.jpg') }}"
+                            <img style="width: 100px; height:80px"
+                                src="{{ asset('assets/frontend/upload/resort/Cloud Paradise Resort Sajek.jpg') }}"
                                 alt="Cloud Paradise Resort Sajek">
                             <div class="post-content">
                                 <a href="javascript:void(0)">Cloud Paradise Resort Sajek</a>
@@ -113,7 +117,8 @@
                         </div>
 
                         <div class="item list-post">
-                            <img src="{{ asset('assets/frontend/upload/resort/Niribili Resort Sajek.jpg') }}"
+                            <img style="width: 100px; height:80px"
+                                src="{{ asset('assets/frontend/upload/resort/Niribili Resort Sajek.jpg') }}"
                                 alt="Niribili Resort Sajek">
                             <div class="post-content">
                                 <a href="javascript:void(0)">Niribili Resort Sajek</a>
