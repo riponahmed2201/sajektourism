@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -19,7 +20,9 @@ class HomeController extends Controller
 
     public function showAboutPage()
     {
-        return view('frontend.pages.about');
+        $services = Service::query()->where('status', '=', Service::STATUS_ACTIVE)->get();
+
+        return view('frontend.pages.about', compact('services'));
     }
 
     public function showAlbumPage()

@@ -42,11 +42,26 @@
             <div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500"
                 id="#kt_aside_menu" data-kt-menu="true">
                 <div class="menu-item">
-                    <a class="menu-link" href="/dashboard">
+                    <a class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}" href="/dashboard">
                         <span class="menu-icon">
                             <i class="bi bi-grid fs-3"></i>
                         </span>
                         <span class="menu-title">Dashboard</span>
+                    </a>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-content pt-8 pb-2">
+                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">About us</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <a class="menu-link {{ Request::is('admin/services') ? 'active' : '' }}" href="/admin/services">
+                        <span class="menu-icon">
+                            <i class="bi bi-layers fs-3"></i>
+                        </span>
+                        <span class="menu-title">Services</span>
                     </a>
                 </div>
 

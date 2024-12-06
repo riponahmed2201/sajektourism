@@ -1,12 +1,12 @@
 <x-layouts.backend-layout>
 
     <!--begin::Url Title-->
-    <x-slot name="title">Dashboard</x-slot>
+    <x-slot name="title">Admin Dashboard</x-slot>
     <!--end::Url Title-->
 
-    <!--begin::Toolbar  -->
+    {{-- <!--begin::Toolbar  -->
     <x-backend.toolbar title="Dashboard" :breadcrumbs="[['label' => 'Home', 'url' => route('dashboard')], ['label' => 'Dashboard', 'active' => true]]" />
-    <!--end::Toolbar -->
+    <!--end::Toolbar --> --}}
 
     <div class="post d-flex flex-column-fluid" id="kt_post">
         <!--begin::Container-->

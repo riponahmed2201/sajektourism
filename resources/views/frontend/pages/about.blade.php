@@ -28,149 +28,22 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-md-6">
-                                    <div class="news-post standard-post2">
-                                        <div class="post-gallery">
-                                            <img src="assets/frontend/upload/news-posts/im12.jpg"
-                                                alt="Hotel & Resort Booking">
-                                            <a class="category-post world" href="javascript:void(0)">Hotel & Resort
-                                                Booking</a>
-                                        </div>
-                                        <div class="post-title">
-                                            <h2><a href="javascript:void(0)">
-                                                    Discover and book your perfect stay. Luxury hotels and resorts
-                                                    await!
-                                                </a></h2>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="news-post standard-post2">
-                                        <div class="post-gallery">
-                                            <img src="assets/frontend/upload/news-posts/im13.jpg"
-                                                alt="Corporate Tour Package">
-                                            <a class="category-post world" href="javascript:void(0)">Corporate Tour
-                                                Package</a>
-                                        </div>
-                                        <div class="post-title">
-                                            <h2><a href="javascript:void(0)">
-                                                    Custom corporate tour packages for your business needs.
-                                                </a></h2>
+                                @foreach ($services as $service)
+                                    <div class="col-md-6">
+                                        <div class="news-post standard-post2">
+                                            <div class="post-gallery">
+                                                <img src="{{ asset($service->image) }}" alt="{{ $service->title }}">
+                                                <a class="category-post world"
+                                                    href="javascript:void(0)">{{ $service->title }}</a>
+                                            </div>
+                                            <div class="post-title">
+                                                <h2>
+                                                    <a href="javascript:void(0)"> {{ $service->details }}</a>
+                                                </h2>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="news-post standard-post2">
-                                        <div class="post-gallery">
-                                            <img src="assets/frontend/upload/news-posts/im14.jpg"
-                                                alt="Groups Tour Package">
-                                            <a class="category-post world" href="javascript:void(0)">Groups Tour
-                                                Package</a>
-                                        </div>
-                                        <div class="post-title">
-                                            <h2><a href="javascript:void(0)">
-                                                    Exciting group tour packages for unforgettable adventures
-                                                </a></h2>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="news-post standard-post2">
-                                        <div class="post-gallery">
-                                            <img src="assets/frontend/upload/news-posts/im15.jpg"
-                                                alt="Family Tour Package">
-                                            <a class="category-post world" href="javascript:void(0)">Family Tour
-                                                Package</a>
-                                        </div>
-                                        <div class="post-title">
-                                            <h2><a href="javascript:void(0)">
-                                                    Specialized family tour packages for memorable experiences.
-                                                </a></h2>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="news-post standard-post2">
-                                        <div class="post-gallery">
-                                            <img src="assets/frontend/upload/news-posts/im8.jpg"
-                                                alt="Customize Tour Package">
-                                            <a class="category-post world" href="javascript:void(0)">Customize Tour
-                                                Package</a>
-                                        </div>
-                                        <div class="post-title">
-                                            <h2><a href="javascript:void(0)">
-                                                    Create your perfect trip with our customizable tour packages.
-                                                </a></h2>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="news-post standard-post2">
-                                        <div class="post-gallery">
-                                            <img src="assets/frontend/upload/news-posts/im9.jpg" alt="Bus Ticket">
-                                            <a class="category-post world" href="javascript:void(0)">Bus Ticket</a>
-                                        </div>
-                                        <div class="post-title">
-                                            <h2><a href="javascript:void(0)">
-                                                    Book your bus tickets easily for a comfortable journey.
-                                                </a></h2>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="news-post standard-post2">
-                                        <div class="post-gallery">
-                                            <img src="assets/frontend/upload/news-posts/im19.jpg" alt="⁠Jeep Booking">
-                                            <a class="category-post world" href="javascript:void(0)">⁠Jeep Booking</a>
-                                        </div>
-                                        <div class="post-title">
-                                            <h2><a href="javascript:void(0)">
-                                                    Book a jeep for your next adventure or trip.
-                                                </a></h2>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="news-post standard-post2">
-                                        <div class="post-gallery">
-                                            <img src="assets/frontend/upload/news-posts/im17.jpg" alt="CNG Booking">
-                                            <a class="category-post world" href="javascript:void(0)">CNG Booking</a>
-                                        </div>
-                                        <div class="post-title">
-                                            <h2><a href="javascript:void(0)">
-                                                    Book a CNG for a convenient and affordable ride.
-                                                </a></h2>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="news-post standard-post2">
-                                        <div class="post-gallery">
-                                            <img src="assets/frontend/upload/news-posts/im18.jpg" alt="Food Order">
-                                            <a class="category-post world" href="javascript:void(0)">Food Order</a>
-                                        </div>
-                                        <div class="post-title">
-                                            <h2><a href="javascript:void(0)">
-                                                    Order delicious food delivered to your doorstep.
-                                                </a></h2>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="news-post standard-post2">
-                                        <div class="post-gallery">
-                                            <img src="assets/frontend/upload/news-posts/im20.jpg"
-                                                alt="⁠Live Music Organized">
-                                            <a class="category-post world"
-                                                href="javascript:void(0)">⁠Live Music Organized</a>
-                                        </div>
-                                        <div class="post-title">
-                                            <h2><a href="javascript:void(0)">
-                                                    Enjoy unforgettable experiences with our live music events.
-                                                </a></h2>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                         <!-- End grid box -->

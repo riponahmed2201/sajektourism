@@ -6,7 +6,7 @@
 <head>
     <base href="">
 
-    <title> {{ $title }} - Sajektourism </title>
+    <title> {{ $title }} - Sajek Tourism </title>
 
     <meta charset="utf-8" />
     <meta name="description"
@@ -69,7 +69,7 @@
                 <!--end::Header-->
 
                 <!--begin::Content-->
-                <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+                <div class="content d-flex flex-column flex-column-fluid">
                     {{ $slot }}
                 </div>
                 <!--end::Content-->

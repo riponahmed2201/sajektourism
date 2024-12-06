@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backend\AuthController;
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\Frontend\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,4 +32,10 @@ Route::group(['middleware' => 'auth'], function () {
     // Route::put('profile/update', [ProfileController::class, 'update'])->name('profile.update');
     // Route::put('password/update', [AuthController::class, 'updatePassword'])->name('password.update');
 
+    //Resources routes
+    Route::group(['prefix' => 'admin'], function () {
+        Route::resources([
+            'services' => ServiceController::class
+        ]);
+    });
 });

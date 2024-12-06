@@ -8,29 +8,20 @@ use Illuminate\View\Component;
 
 class Toolbar extends Component
 {
-    public string $title;
-    public array $breadcrumbs;
-    public ?string $actionUrl;
-    public ?string $modalTarget;
-    public ?string $actionIcon;
-    public string $actionLabel;
+    public $title;
+    public $breadcrumbs;
+    public $buttonText;
+    public $buttonIcon;
+    public $buttonUrl;
 
-    public function __construct(
-        $title,
-        $breadcrumbs = [],
-        $actionUrl = null,
-        $modalTarget = null,
-        $actionIcon = null,
-        $actionLabel = 'Create'
-    ) {
+    public function __construct($title, $breadcrumbs = [], $buttonText = null, $buttonIcon = null, $buttonUrl = '#')
+    {
         $this->title = $title;
         $this->breadcrumbs = $breadcrumbs;
-        $this->actionUrl = $actionUrl;
-        $this->modalTarget = $modalTarget;
-        $this->actionIcon = $actionIcon;
-        $this->actionLabel = $actionLabel;
+        $this->buttonText = $buttonText;
+        $this->buttonIcon = $buttonIcon;
+        $this->buttonUrl = $buttonUrl;
     }
-
 
     /**
      * Get the view / contents that represent the component.
