@@ -17,7 +17,7 @@
     <meta property="og:site_name" content="Sajek | Tourism" />
 
     <link rel="canonical" href="https://sajektourism.com/" />
-    <link rel="shortcut icon" href="{{ asset('assets/backend/media/logos/favicon.ico') }}" />
+    <link rel="shortcut icon" href="{{ asset('assets/logo/favicon.ico') }}" />
 
     <!--begin::Fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
@@ -39,13 +39,13 @@
             <div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
 
                 <a href="/login" class="mb-12">
-                    <img alt="Logo" src="{{ asset('assets/backend/media/logos/logo-1.svg') }}" class="h-40px" />
+                    <img alt="Logo" src="{{ asset('assets/logo/logo.svg') }}" class="h-40px" />
                 </a>
 
                 <div class="w-lg-500px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto">
 
                     <form class="form w-100" novalidate="novalidate" action="{{ route('login') }}" method="POST">
-                        
+
                         @csrf
 
                         <div class="text-center mb-10">

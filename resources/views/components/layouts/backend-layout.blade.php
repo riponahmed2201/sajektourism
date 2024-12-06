@@ -22,7 +22,7 @@
     <meta property="og:site_name" content="Sajek | Tourism" />
 
     <link rel="canonical" href="http://sajektourism.com/" />
-    <link rel="shortcut icon" href="{{ asset('assets/backend/media/logos/favicon.ico') }}" />
+    <link rel="shortcut icon" href="{{ asset('assets/logo/favicon.ico') }}" />
 
     <!--begin::Fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
