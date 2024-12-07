@@ -1,4 +1,4 @@
-<div id="kt_aside" class="aside aside-dark aside-hoverable" data-kt-drawer="true" data-kt-drawer-name="aside"
+<div id="kt_aside" class="aside aside-light aside-hoverable" data-kt-drawer="true" data-kt-drawer-name="aside"
     data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true"
     data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="start"
     data-kt-drawer-toggle="#kt_aside_mobile_toggle">
@@ -72,7 +72,7 @@
                 </div>
 
                 <div class="menu-item">
-                    <a class="menu-link" href="/dashboard">
+                    <a class="menu-link {{ Request::is('admin/resorts') ? 'active' : '' }}" href="/admin/resorts">
                         <span class="menu-icon">
                             <i class="bi bi-layers fs-3"></i>
                         </span>
@@ -99,7 +99,7 @@
                 </div>
 
                 <div class="menu-item">
-                    <a class="menu-link" href="/dashboard">
+                    <a class="menu-link {{ Request::is('admin/youtubes') ? 'active' : '' }}" href="/admin/youtubes">
                         <span class="menu-icon">
                             <i class="bi bi-shield-check fs-3"></i>
                         </span>

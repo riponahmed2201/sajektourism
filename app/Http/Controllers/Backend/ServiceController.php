@@ -55,7 +55,7 @@ class ServiceController extends Controller
 
         if ($image) {
             $imageName = md5(Str::random(30) . time() . '_' . $request->file('image')) . '.' . $request->file('image')->getClientOriginalExtension();
-            $request->file('image')->move('uploads/service/', $imageName);
+            $request->file('image')->move('uploads/services/', $imageName);
             $input['image'] = $imageName;
         }
 
@@ -113,10 +113,10 @@ class ServiceController extends Controller
 
         if ($image) {
             $imageName = md5(Str::random(30) . time() . '_' . $request->file('image')) . '.' . $request->file('image')->getClientOriginalExtension();
-            $request->file('image')->move('uploads/service/', $imageName);
+            $request->file('image')->move('uploads/services/', $imageName);
 
-            if (file_exists('uploads/service/' . $service->image) && !empty($service->image)) {
-                unlink('uploads/service/' . $service->image);
+            if (file_exists('uploads/services/' . $service->image) && !empty($service->image)) {
+                unlink('uploads/services/' . $service->image);
             }
 
             $input['image'] = $imageName;

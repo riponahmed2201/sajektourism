@@ -4,11 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Resort extends Model
+class Youtube extends Model
 {
-    protected $table = 'resorts';
+    protected $table = 'youtubes';
     protected $primaryKey = 'id';
-    protected $fillable = ['title', 'short_description', 'details', 'thumbnail', 'album', 'status', 'created_by', 'updated_by'];
+    protected $fillable = ['title', 'link', 'status', 'created_by', 'updated_by'];
 
     const STATUS_ACTIVE = 'active';
     const STATUS_DEACTIVE = 'deactive';

@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('resorts', function (Blueprint $table) {
+        Schema::create('youtubes', function (Blueprint $table) {
             $table->id();
             $table->string('title', 255);
-            $table->string('short_description', 255);
-            $table->text('details');
-            $table->string('thumbnail', 255);
-            $table->longText('album');
+            $table->longText('link');
             $table->enum('status', ['active', 'deactive']);
             $table->tinyInteger('created_by')->nullable();
             $table->tinyInteger('updated_by')->nullable();
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('resorts');
+        Schema::dropIfExists('youtubes');
     }
 };
