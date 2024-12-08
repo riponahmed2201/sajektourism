@@ -16,7 +16,7 @@ class DailyNewsController extends Controller
     {
         $dailyNews = DailyNews::latest()->get();
 
-        return view('backend.daily-news.index', compact('dailyNews'))
+        return view('backend.daily-news.index', compact('dailyNews'));
     }
 
     /**
