@@ -1,9 +1,12 @@
 <?php
 
 use App\Http\Controllers\Backend\AuthController;
+use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\DailyNewsController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\ResortController;
 use App\Http\Controllers\Backend\ServiceController;
+use App\Http\Controllers\Backend\TagController;
 use App\Http\Controllers\Backend\YoutubeController;
 use App\Http\Controllers\Frontend\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -40,6 +43,9 @@ Route::group(['middleware' => 'auth'], function () {
             'services' => ServiceController::class,
             'resorts' => ResortController::class,
             'youtubes' => YoutubeController::class,
+            'tags' => TagController::class,
+            'categories' => CategoryController::class,
+            'daily-news' => DailyNewsController::class,
         ]);
     });
 });

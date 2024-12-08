@@ -8,7 +8,7 @@ class Youtube extends Model
 {
     protected $table = 'youtubes';
     protected $primaryKey = 'id';
-    protected $fillable = ['title', 'link', 'status', 'created_by', 'updated_by'];
+    protected $fillable = ['title', 'slug', 'link', 'status', 'created_by', 'updated_by'];
 
     const STATUS_ACTIVE = 'active';
     const STATUS_DEACTIVE = 'deactive';

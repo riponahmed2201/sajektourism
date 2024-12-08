@@ -8,7 +8,7 @@ class Service extends Model
 {
     protected $table = 'services';
     protected $primaryKey = 'id';
-    protected $fillable = ['title', 'image', 'details', 'status', 'created_by', 'updated_by'];
+    protected $fillable = ['title', 'slug', 'image', 'details', 'status', 'created_by', 'updated_by'];
 
     const STATUS_ACTIVE = 'active';
     const STATUS_DEACTIVE = 'deactive';

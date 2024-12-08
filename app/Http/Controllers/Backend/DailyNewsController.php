@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\DailyNews;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class DailyNewsController extends Controller
 {
@@ -13,7 +14,9 @@ class DailyNewsController extends Controller
      */
     public function index()
     {
-        //
+        $dailyNews = DailyNews::latest()->get();
+
+        return view('backend.daily-news.index', compact('dailyNews'))
     }
 
     /**

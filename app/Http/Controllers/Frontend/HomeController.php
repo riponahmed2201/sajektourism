@@ -32,6 +32,11 @@ class HomeController extends Controller
 
     public function showDailyNewsPage()
     {
-        return view('frontend.pages.daily-news');
+        return view('frontend.pages.daily-news.index');
+    }
+
+    public function showSingleDailyNewsPage()
+    {
+        return view('frontend.pages.daily-news.single-news');
     }
 }

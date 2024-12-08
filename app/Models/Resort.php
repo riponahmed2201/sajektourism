@@ -8,7 +8,7 @@ class Resort extends Model
 {
     protected $table = 'resorts';
     protected $primaryKey = 'id';
-    protected $fillable = ['title', 'short_description', 'details', 'thumbnail', 'album', 'status', 'created_by', 'updated_by'];
+    protected $fillable = ['title', 'slug', 'short_description', 'details', 'thumbnail', 'album', 'status', 'created_by', 'updated_by'];
 
     const STATUS_ACTIVE = 'active';
     const STATUS_DEACTIVE = 'deactive';

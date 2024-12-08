@@ -11,14 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('resorts', function (Blueprint $table) {
+        Schema::create('tags', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 255);
+            $table->string('title', 100);
             $table->string('slug', 255);
-            $table->string('short_description', 255);
             $table->text('details');
-            $table->string('thumbnail', 255);
-            $table->longText('album');
             $table->enum('status', ['active', 'deactive']);
             $table->tinyInteger('created_by')->nullable();
             $table->tinyInteger('updated_by')->nullable();
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('resorts');
+        Schema::dropIfExists('tags');
     }
 };

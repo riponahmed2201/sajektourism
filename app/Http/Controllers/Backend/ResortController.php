@@ -46,6 +46,7 @@ class ResortController extends Controller
 
         $input = [
             'title' => $request->title,
+            'title' => Str::slug($request->title),
             'short_description' => $request->short_description,
             'details' => $request->details,
             'status' => $request->filled('status'),
@@ -107,6 +108,7 @@ class ResortController extends Controller
 
         $input = [
             'title' => $request->title,
+            'title' => Str::slug($request->title),
             'short_description' => $request->short_description,
             'details' => $request->details,
             'status' => $request->filled('status'),

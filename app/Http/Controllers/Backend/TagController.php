@@ -3,23 +3,23 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Youtube;
+use App\Models\Tag;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
-class YoutubeController extends Controller
+class TagController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $youtubes = Youtube::all();
+        $tags = Tag::latest()->get();
 
-        return view('backend.youtubes.index', compact('youtubes'));
+        return view('backend.tags.index', compact('tags'));
     }
 
     /**
@@ -27,7 +27,7 @@ class YoutubeController extends Controller
      */
     public function create()
     {
-        return view('backend.youtubes.form');
+        return view('backend.tags.form');
     }
 
     /**
@@ -36,27 +36,27 @@ class YoutubeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|string|max:255',
-            'link' => 'required|string',
-            'status' => 'required'
+            'title' => 'required|string|max:255|unique:tags',
+            'details' => 'required|string',
+            'status' => 'nullable'
         ]);
 
         $input = [
             'title' => $request->title,
             'title' => Str::slug($request->title),
-            'link' => $request->link,
-            'status' => $request->filled('status'),
+            'details' => $request->details,
+            'status' => $request->filled('status') ? Tag::STATUS_ACTIVE : Tag::STATUS_DEACTIVE,
             'created_by' => Auth::user()->id,
             'created_at' => Carbon::now(),
         ];
 
         try {
 
-            Youtube::create($input);
+            Tag::create($input);
 
-            notify()->success("Youtube link created successfully", "Success");
+            notify()->success("Tag created successfully", "Success");
 
-            return to_route('youtubes.index');
+            return to_route('tags.index');
         } catch (Exception $exception) {
             notify()->success("Something error found! Please try again", "Error");
             return back();
@@ -66,7 +66,7 @@ class YoutubeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Youtube $youtube)
+    public function show(Tag $tag)
     {
         //
     }
@@ -74,38 +74,38 @@ class YoutubeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Youtube $youtube)
+    public function edit(Tag $tag)
     {
-        return view('backend.youtubes.form', compact('youtube'));
+        return view('backend.tags.form', compact('tag'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Youtube $youtube)
+    public function update(Request $request, Tag $tag)
     {
         $request->validate([
-            'title' => 'required|string|max:255',
-            'link' => 'required|string',
-            'status' => 'required'
+            'title' => 'required|string|max:255|unique:tags,title,' . $tag->id,
+            'details' => 'required|string',
+            'status' => 'nullable'
         ]);
 
         $input = [
             'title' => $request->title,
             'title' => Str::slug($request->title),
-            'link' => $request->link,
-            'status' => $request->filled('status'),
-            'updated_by' => Auth::user()->id,
-            'updated_at' => Carbon::now(),
+            'details' => $request->details,
+            'status' => $request->filled('status') ? Tag::STATUS_ACTIVE : Tag::STATUS_DEACTIVE,
+            'created_by' => Auth::user()->id,
+            'created_at' => Carbon::now(),
         ];
 
         try {
 
-            $youtube->update($input);
+            $tag->update($input);
 
-            notify()->success("Youtube link updated successfully", "Success");
+            notify()->success("Tag updated successfully", "Success");
 
-            return to_route('youtubes.index');
+            return to_route('tags.index');
         } catch (Exception $exception) {
             notify()->success("Something error found! Please try again", "Error");
             return back();
@@ -115,7 +115,7 @@ class YoutubeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Youtube $youtube)
+    public function destroy(Tag $tag)
     {
         //
     }

@@ -19,6 +19,7 @@ class ResortSeeder extends Seeder
         $resorts = [
             [
                 'title' => 'Abakash Emmanuel Eco Resort',
+                'slug' => 'abakash-emmanuel-eco-resort',
                 'short_description' => 'Abakash Emmanuel Eco Resort offers a serene, nature-filled escape with eco-friendly amenities.',
                 'details' => 'Abakash Emmanuel Eco Resort offers a serene, nature-filled escape with eco-friendly amenities.',
                 'thumbnail' => 'Abakash Emmanuel Eco Resort.jpg',
@@ -31,6 +32,7 @@ class ResortSeeder extends Seeder
             ],
             [
                 'title' => 'Sajek Eco Valley Resort',
+                'slug' => 'sajek-eco-valley-resort',
                 'short_description' => 'Sajek Eco Valley Resort offers a tranquil stay amidst the breathtaking beauty of Sajek.',
                 'details' => 'Sajek Eco Valley Resort offers a tranquil stay amidst the breathtaking beauty of Sajek.',
                 'thumbnail' => 'Sajek Eco Valley Resort.jpg',
@@ -43,6 +45,7 @@ class ResortSeeder extends Seeder
             ],
             [
                 'title' => 'Meghchut Resort',
+                'slug' => 'meghchut-resort',
                 'short_description' => 'Meghchut Resort promises a cozy retreat above the clouds in Sajek.',
                 'details' => 'Meghchut Resort promises a cozy retreat above the clouds in Sajek.',
                 'thumbnail' => 'Meghchut Resort.jpg',
@@ -55,6 +58,7 @@ class ResortSeeder extends Seeder
             ],
             [
                 'title' => 'Cloud Paradise Resort Sajek',
+                'slug' => 'cloud-paradise-resort-sajek',
                 'short_description' => 'Cloud Paradise Resort offers a heavenly escape amidst Sajeks scenic beauty.',
                 'details' => 'Cloud Paradise Resort offers a heavenly escape amidst Sajeks scenic beauty.',
                 'thumbnail' => 'Cloud Paradise Resort Sajek.jpg',
@@ -67,6 +71,7 @@ class ResortSeeder extends Seeder
             ],
             [
                 'title' => 'Niribili Resort Sajek',
+                'slug' => 'niribili-resort-sajek',
                 'short_description' => 'Niribili Resort offers a peaceful retreat amidst Sajeks natural beauty.',
                 'details' => 'Niribili Resort offers a peaceful retreat amidst Sajeks natural beauty.',
                 'thumbnail' => 'Niribili Resort Sajek.jpg',

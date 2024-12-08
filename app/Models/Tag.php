@@ -4,11 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class DailyNews extends Model
+class Tag extends Model
 {
-    protected $table = 'daily_news';
+    protected $table = 'tags';
     protected $primaryKey = 'id';
-    protected $fillable = ['category_id', 'title', 'slug', 'details', 'thumbnail', 'images', 'date', 'is_featured', 'is_top', 'is_popular', 'is_breaking', 'is_recent', 'view_count', 'status', 'created_by', 'updated_by'];
+    protected $fillable = ['title', 'slug', 'details', 'status', 'created_by', 'updated_by'];
 
     const STATUS_ACTIVE = 'active';
     const STATUS_DEACTIVE = 'deactive';

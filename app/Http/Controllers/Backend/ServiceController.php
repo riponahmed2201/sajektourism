@@ -44,6 +44,7 @@ class ServiceController extends Controller
 
         $input = [
             'title' => $request->title,
+            'title' => Str::slug($request->title),
             'details' => $request->details,
             'status' => $request->filled('status'),
             'created_by' => Auth::user()->id,
@@ -102,6 +103,7 @@ class ServiceController extends Controller
 
         $input = [
             'title' => $request->title,
+            'title' => Str::slug($request->title),
             'details' => $request->details,
             'status' => $request->filled('status'),
             'created_by' => Auth::user()->id,

@@ -17,7 +17,9 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             ServiceSeeder::class,
             ResortSeeder::class,
-            YoutubeSeeder::class
+            YoutubeSeeder::class,
+            TagSeeder::class,
+            CategorySeeder::class,
         ]);
     }
 }

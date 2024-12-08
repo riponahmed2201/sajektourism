@@ -52,7 +52,7 @@
 
                 <div class="menu-item">
                     <div class="menu-content pt-8 pb-2">
-                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">About us</span>
+                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">About us management</span>
                     </div>
                 </div>
 
@@ -67,8 +67,17 @@
 
                 <div class="menu-item">
                     <div class="menu-content pt-8 pb-2">
-                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">Resort</span>
+                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">Resort management</span>
                     </div>
+                </div>
+
+                <div class="menu-item">
+                    <a class="menu-link" href="/dashboard">
+                        <span class="menu-icon">
+                            <i class="bi-chat-left fs-3"></i>
+                        </span>
+                        <span class="menu-title">Album</span>
+                    </a>
                 </div>
 
                 <div class="menu-item">
@@ -81,12 +90,42 @@
                 </div>
 
                 <div class="menu-item">
-                    <a class="menu-link" href="/dashboard">
+                    <div class="menu-content pt-8 pb-2">
+                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">Daily News management</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <a class="menu-link {{ Request::is('admin/tags') ? 'active' : '' }}" href="/admin/tags">
+                        <span class="menu-icon">
+                            <i class="bi bi-patch-check fs-3"></i>
+                        </span>
+                        <span class="menu-title">Tags</span>
+                    </a>
+                </div>
+
+                <div class="menu-item">
+                    <a class="menu-link {{ Request::is('admin/categories') ? 'active' : '' }}" href="/admin/categories">
+                        <span class="menu-icon">
+                            <i class="bi bi-patch-check fs-3"></i>
+                        </span>
+                        <span class="menu-title">Categories</span>
+                    </a>
+                </div>
+
+                <div class="menu-item">
+                    <a class="menu-link {{ Request::is('admin/daily-news') ? 'active' : '' }}" href="/admin/daily-news">
                         <span class="menu-icon">
                             <i class="bi bi-patch-check fs-3"></i>
                         </span>
                         <span class="menu-title">Daily News</span>
                     </a>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-content pt-8 pb-2">
+                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">Video management</span>
+                    </div>
                 </div>
 
                 <div class="menu-item">
@@ -110,15 +149,6 @@
                 <div class="menu-item">
                     <a class="menu-link" href="/dashboard">
                         <span class="menu-icon">
-                            <i class="bi-chat-left fs-3"></i>
-                        </span>
-                        <span class="menu-title">Album</span>
-                    </a>
-                </div>
-
-                <div class="menu-item">
-                    <a class="menu-link" href="/dashboard">
-                        <span class="menu-icon">
                             <i class="bi bi-layers fs-3"></i>
                         </span>
                         <span class="menu-title">Package</span>
@@ -133,8 +163,7 @@
     <!--end::Aside menu-->
     <!--begin::Footer-->
     <div class="aside-footer flex-column-auto pt-5 pb-7 px-5" id="kt_aside_footer">
-        <a href="javascript:void(0)" class="btn btn-custom btn-primary w-100" data-bs-toggle="tooltip"
-            data-bs-trigger="hover" data-bs-dismiss-="click" title="200+ in-house components and 3rd-party plugins">
+        <a href="javascript:void(0)" class="btn btn-custom btn-primary w-100">
             <span class="btn-label">Sajektourism v1.0.0</span>
             <!--begin::Svg Icon | path: icons/duotune/general/gen005.svg-->
             <span class="svg-icon btn-icon svg-icon-2">
