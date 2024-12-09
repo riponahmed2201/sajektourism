@@ -54,11 +54,11 @@
                                     </div>
 
                                     <div class="col-md-6 fv-row mb-5">
-                                        <label class="required fs-5 fw-bold mb-2">Album</label>
-                                        <input type="file" required multiple
-                                            class="form-control form-control-solid @error('album') is-invalid @enderror"
-                                            name="album" />
-                                        @error('album')
+                                        <label class="required fs-5 fw-bold mb-2">Images</label>
+                                        <input type="file" multiple
+                                            class="form-control form-control-solid @error('images') is-invalid @enderror"
+                                            name="images[]" />
+                                        @error('images')
                                             <span class="text-danger mt-2">{{ $message }}</span>
                                         @enderror
                                     </div>

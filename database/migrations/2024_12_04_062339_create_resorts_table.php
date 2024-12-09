@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('short_description', 255);
             $table->text('details');
             $table->string('thumbnail', 255);
-            $table->longText('album');
+            $table->longText('images');
             $table->enum('status', ['active', 'deactive']);
             $table->tinyInteger('created_by')->nullable();
             $table->tinyInteger('updated_by')->nullable();

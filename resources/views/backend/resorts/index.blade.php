@@ -5,7 +5,7 @@
     <!--end::Title-->
 
     <!--begin::Toolbar  -->
-    <x-backend.toolbar title="Resort list" :breadcrumbs="[['label' => 'Home', 'url' => '/dashboard'], ['label' => 'Resort list']]" buttonIcon="bi bi-plus-circle" buttonText="Add New"
+    <x-backend.toolbar title="Resorts" :breadcrumbs="[['label' => 'Home', 'url' => '/dashboard'], ['label' => 'Resort management'], ['label' => 'Resorts']]" buttonIcon="bi bi-plus-circle" buttonText="Add New"
         buttonUrl="{{ route('resorts.create') }}" />
     <!--end::Toolbar -->
 
@@ -29,6 +29,7 @@
                                         <tr class="fw-bolder text-muted">
                                             <th>#</th>
                                             <th>Thumbnail</th>
+                                            {{-- <th>Images</th> --}}
                                             <th>Title</th>
                                             <th>Short Description</th>
                                             <th>Status</th>
@@ -49,6 +50,18 @@
                                                         </div>
                                                     </div>
                                                 </td>
+                                                {{-- <td>
+                                                    @if (!empty(json_decode($resort->images)))
+                                                        @foreach (json_decode($resort->images) as $image)
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="symbol symbol-45px me-5">
+                                                                    <img src="{{ asset('uploads/resorts/' . $image) }}"
+                                                                        alt="{{ $resort->title }}" />
+                                                                </div>
+                                                            </div>
+                                                        @endforeach
+                                                    @endif
+                                                </td> --}}
                                                 <td>{{ $resort->title }}</td>
                                                 <td>{{ $resort->short_description }}</td>
                                                 <td>
