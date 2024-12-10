@@ -52,14 +52,15 @@
                                                 </td>
                                                 {{-- <td>
                                                     @if (!empty(json_decode($resort->images)))
-                                                        @foreach (json_decode($resort->images) as $image)
-                                                            <div class="d-flex align-items-center">
-                                                                <div class="symbol symbol-45px me-5">
-                                                                    <img src="{{ asset('uploads/resorts/' . $image) }}"
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="symbol symbol-45px me-5">
+                                                                @foreach (json_decode($resort->images) as $image)
+                                                                    <img class="ms-2"
+                                                                        src="{{ asset('uploads/resorts/' . $image) }}"
                                                                         alt="{{ $resort->title }}" />
-                                                                </div>
+                                                                @endforeach
                                                             </div>
-                                                        @endforeach
+                                                        </div>
                                                     @endif
                                                 </td> --}}
                                                 <td>{{ $resort->title }}</td>

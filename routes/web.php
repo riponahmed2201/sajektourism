@@ -18,7 +18,9 @@ Route::get('login', [AuthController::class, 'showLoginForm']);
 Route::post('login', [AuthController::class, 'login'])->name('login');
 
 //Frontend Routes
-Route::get('resort', [HomeController::class, 'showResortPage']);
+Route::get('resorts', [HomeController::class, 'showResortPage']);
+Route::get('resorts/{slug}', [HomeController::class, 'showResortBySlug'])->name('home.resort.single');
+
 Route::get('daily-news', [HomeController::class, 'showDailyNewsPage']);
 Route::get('tv-show', [HomeController::class, 'showTvShowPage']);
 Route::get('youtube', [HomeController::class, 'showYoutubePage']);

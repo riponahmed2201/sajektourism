@@ -43,7 +43,7 @@ class CategoryController extends Controller
 
         $input = [
             'title' => $request->title,
-            'title' => Str::slug($request->title),
+            'slug' => Str::slug($request->title),
             'details' => $request->details,
             'status' => $request->filled('status') ? Category::STATUS_ACTIVE : Category::STATUS_DEACTIVE,
             'created_by' => Auth::user()->id,
@@ -51,11 +51,8 @@ class CategoryController extends Controller
         ];
 
         try {
-
             Category::create($input);
-
             notify()->success("Category created successfully", "Success");
-
             return to_route('categories.index');
         } catch (Exception $exception) {
             notify()->success("Something error found! Please try again", "Error");
@@ -92,7 +89,7 @@ class CategoryController extends Controller
 
         $input = [
             'title' => $request->title,
-            'title' => Str::slug($request->title),
+            'slug' => Str::slug($request->title),
             'details' => $request->details,
             'status' => $request->filled('status') ? Category::STATUS_ACTIVE : Category::STATUS_DEACTIVE,
             'created_by' => Auth::user()->id,

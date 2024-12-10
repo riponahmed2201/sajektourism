@@ -18,7 +18,6 @@ class YoutubeController extends Controller
     public function index()
     {
         $youtubes = Youtube::all();
-
         return view('backend.youtubes.index', compact('youtubes'));
     }
 
@@ -36,7 +35,7 @@ class YoutubeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|string|max:255',
+            'title' => 'required|string|max:255|unique:youtubes',
             'link' => 'required|string',
             'status' => 'required'
         ]);
@@ -45,17 +44,14 @@ class YoutubeController extends Controller
             'title' => $request->title,
             'title' => Str::slug($request->title),
             'link' => $request->link,
-            'status' => $request->filled('status'),
+            'status' => $request->filled('status') ? Youtube::STATUS_ACTIVE : Youtube::STATUS_DEACTIVE,
             'created_by' => Auth::user()->id,
             'created_at' => Carbon::now(),
         ];
 
         try {
-
             Youtube::create($input);
-
             notify()->success("Youtube link created successfully", "Success");
-
             return to_route('youtubes.index');
         } catch (Exception $exception) {
             notify()->success("Something error found! Please try again", "Error");
@@ -85,7 +81,7 @@ class YoutubeController extends Controller
     public function update(Request $request, Youtube $youtube)
     {
         $request->validate([
-            'title' => 'required|string|max:255',
+            'title' => 'required|string|max:255|unique:youtubes,title,' . $youtube->id,
             'link' => 'required|string',
             'status' => 'required'
         ]);
@@ -94,17 +90,14 @@ class YoutubeController extends Controller
             'title' => $request->title,
             'title' => Str::slug($request->title),
             'link' => $request->link,
-            'status' => $request->filled('status'),
+            'status' => $request->filled('status') ? Youtube::STATUS_ACTIVE : Youtube::STATUS_DEACTIVE,
             'updated_by' => Auth::user()->id,
             'updated_at' => Carbon::now(),
         ];
 
         try {
-
             $youtube->update($input);
-
             notify()->success("Youtube link updated successfully", "Success");
-
             return to_route('youtubes.index');
         } catch (Exception $exception) {
             notify()->success("Something error found! Please try again", "Error");

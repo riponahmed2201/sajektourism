@@ -1,7 +1,6 @@
 <header class="clearfix third-style">
     <!-- Bootstrap navbar -->
     <nav class="navbar navbar-default navbar-static-top" role="navigation">
-
         <!-- Top line -->
         <div class="top-line">
             <div class="container">
@@ -57,82 +56,28 @@
         <div class="list-line-posts">
             <div class="container">
 
+                @php $resorts = \App\Models\Resort::latest()->get(); @endphp
+
                 <div class="owl-wrapper">
                     <div class="owl-carousel" data-num="3">
-
-                        <div class="item list-post">
-                            <img style="width: 100px; height:80px"
-                                src="{{ asset('assets/frontend/upload/resort/Abakash Emmanuel Eco Resort.jpg') }}"
-                                alt="Abakash Emmanuel Eco Resort">
-                            <div class="post-content">
-                                <a href="javascript:void(0)">Abakash Emmanuel Eco Resort</a>
-                                <h2><a href="javascript:void(0)">Abakash Emmanuel Eco Resort offers a serene,
-                                        nature-filled escape with eco-friendly amenities.</a></h2>
-                                <ul class="post-tags">
-                                    <li><i class="fa fa-clock-o"></i>{{ date('d M Y') }}</li>
-                                </ul>
+                        @foreach ($resorts as $resort)
+                            <div class="item list-post">
+                                <img style="width: 100px; height:80px"
+                                    src="{{ asset('uploads/resorts/' . $resort->thumbnail) }}"
+                                    alt="{{ $resort->title }}">
+                                <div class="post-content">
+                                    <a href="javascript:void(0)">{{ $resort->title }}</a>
+                                    <h2><a href="javascript:void(0)">
+                                            {{ $resort->short_description }}
+                                        </a></h2>
+                                    <ul class="post-tags">
+                                        <li><i class="fa fa-clock-o"></i>{{ date('d M Y') }}</li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="item list-post">
-                            <img style="width: 100px; height:80px"
-                                src="{{ asset('assets/frontend/upload/resort/Sajek Eco Valley Resort.jpg') }}"
-                                alt="Sajek Eco Valley Resort">
-                            <div class="post-content">
-                                <a href="javascript:void(0)">Sajek Eco Valley Resort</a>
-                                <h2><a href="javascript:void(0)">Sajek Eco Valley Resort offers a tranquil stay amidst
-                                        the breathtaking beauty of Sajek.</a></h2>
-                                <ul class="post-tags">
-                                    <li><i class="fa fa-clock-o"></i>{{ date('d M Y') }}</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="item list-post">
-                            <img style="width: 100px; height:80px"
-                                src="{{ asset('assets/frontend/upload/resort/Meghchut Resort.jpg') }}"
-                                alt="Meghchut Resort">
-                            <div class="post-content">
-                                <a href="javascript:void(0)">Meghchut Resort</a>
-                                <h2><a href="javascript:void(0)">Meghchut Resort promises a cozy retreat above the
-                                        clouds in Sajek.</a></h2>
-                                <ul class="post-tags">
-                                    <li><i class="fa fa-clock-o"></i>{{ date('d M Y') }}</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="item list-post">
-                            <img style="width: 100px; height:80px"
-                                src="{{ asset('assets/frontend/upload/resort/Cloud Paradise Resort Sajek.jpg') }}"
-                                alt="Cloud Paradise Resort Sajek">
-                            <div class="post-content">
-                                <a href="javascript:void(0)">Cloud Paradise Resort Sajek</a>
-                                <h2><a href="javascript:void(0)">Cloud Paradise Resort offers a heavenly escape amidst
-                                        Sajek's scenic beauty.</a></h2>
-                                <ul class="post-tags">
-                                    <li><i class="fa fa-clock-o"></i>{{ date('d M Y') }}</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="item list-post">
-                            <img style="width: 100px; height:80px"
-                                src="{{ asset('assets/frontend/upload/resort/Niribili Resort Sajek.jpg') }}"
-                                alt="Niribili Resort Sajek">
-                            <div class="post-content">
-                                <a href="javascript:void(0)">Niribili Resort Sajek</a>
-                                <h2><a href="javascript:void(0)">Niribili Resort offers a peaceful retreat amidst
-                                        Sajek's natural beauty.</a></h2>
-                                <ul class="post-tags">
-                                    <li><i class="fa fa-clock-o"></i>{{ date('d M Y') }}</li>
-                                </ul>
-                            </div>
-                        </div>
-
+                        @endforeach
                     </div>
                 </div>
-
             </div>
         </div>
         <!-- End list line posts -->
@@ -160,7 +105,7 @@
                     <ul class="nav navbar-nav navbar-right">
 
                         <li><a class="home" href="/">Home</a></li>
-                        <li><a class="world" href="/resort">Resort</a></li>
+                        <li><a class="world" href="/resorts">Resort</a></li>
                         <li><a class="travel" href="/daily-news">Daily News</a></li>
                         <li><a class="fashion" href="/tv-show">Tv Show</a></li>
                         <li><a class="video" href="/youtube">Youtube</a></li>

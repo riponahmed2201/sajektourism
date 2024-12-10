@@ -1,12 +1,12 @@
 <x-layouts.backend-layout>
 
     <!--begin::Title-->
-    <x-slot name="title">Services</x-slot>
+    <x-slot name="title">Daily News</x-slot>
     <!--end::Title-->
 
     <!--begin::Toolbar  -->
-    <x-backend.toolbar title="Add service" :breadcrumbs="[['label' => 'Home', 'url' => '/dashboard'], ['label' => 'Add service']]" buttonIcon="bi bi-list" buttonText="Service List"
-        buttonUrl="{{ route('services.index') }}" />
+    <x-backend.toolbar title="Add daily news" :breadcrumbs="[['label' => 'Home', 'url' => '/dashboard'], ['label' => 'Add daily news']]" buttonIcon="bi bi-list" buttonText="Daily News"
+        buttonUrl="{{ route('daily-news.index') }}" />
     <!--end::Toolbar -->
 
     <div class="post d-flex flex-column-fluid" id="kt_post">
@@ -22,15 +22,55 @@
                         <div class="card-body py-8">
                             <!--begin::Form-->
                             <form class="form" method="POST" enctype="multipart/form-data"
-                                action="{{ isset($service) ? route('services.update', $service->id) : route('services.store') }}">
+                                action="{{ isset($dailyNews) ? route('services.update', $dailyNews->id) : route('services.store') }}">
                                 @csrf
 
-                                @isset($service)
+                                @isset($dailyNews)
                                     @method('PUT')
-                                    <input type="text" hidden name="id" value="{{ $service->id }}">
+                                    <input type="text" hidden name="id" value="{{ $dailyNews->id }}">
                                 @endisset
 
                                 <div class="row mb-5">
+
+                                    <div class="col-md-6 fv-row mb-5">
+                                        <label class="required fs-5 fw-bold mb-2">Category</label>
+                                        <select name="category" required
+                                            class="form-select form-select-solid @error('category') is-invalid @enderror"
+                                            data-control="select2" data-placeholder="Select category">
+                                            <option value=""></option>
+                                            @foreach ($categories as $categoryId => $categoryName)
+                                                <option
+                                                    @isset($editModeData)
+                                                        {{ $editModeData->category_id === $categoryId ? 'selected' : '' }}
+                                                    @endisset
+                                                    value="{{ $categoryId }}">
+                                                    {{ $categoryName }}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('category')
+                                            <span class="text-danger mt-2">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+
+                                    <div class="col-md-6 fv-row mb-5">
+                                        <label class="required fs-5 fw-bold mb-2">Tag</label>
+                                        <select name="tag" required
+                                            class="form-select form-select-solid @error('tag') is-invalid @enderror"
+                                            data-control="select2" data-placeholder="Select tag">
+                                            <option value=""></option>
+                                            @foreach ($categories as $categoryId => $categoryName)
+                                                <option
+                                                    @isset($editModeData)
+                                                        {{ $editModeData->category_id === $categoryId ? 'selected' : '' }}
+                                                    @endisset
+                                                    value="{{ $categoryId }}">
+                                                    {{ $categoryName }}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('tag')
+                                            <span class="text-danger mt-2">{{ $message }}</span>
+                                        @enderror
+                                    </div>
 
                                     <div class="col-md-6 fv-row mb-5">
                                         <label class="required fs-5 fw-bold mb-2">Title</label>
@@ -44,11 +84,77 @@
                                     </div>
 
                                     <div class="col-md-6 fv-row mb-5">
-                                        <label class="required fs-5 fw-bold mb-2">Image</label>
-                                        <input type="file" required
-                                            class="form-control form-control-solid @error('image') is-invalid @enderror"
-                                            name="image" />
-                                        @error('image')
+                                        <label class="required fs-5 fw-bold mb-2">Date</label>
+                                        <input type="text" required
+                                            class="form-control form-control-solid @error('date') is-invalid @enderror"
+                                            placeholder="Enter date" name="date"
+                                            value="{{ $service->date ?? old('date') }}" />
+                                        @error('date')
+                                            <span class="text-danger mt-2">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+
+                                    <div class="col-md-12 fv-row mb-5">
+                                        <label for="news_type" class="required fs-5 fw-bold mb-2">News Type</label>
+                                        <div class="d-flex">
+                                            <div class="form-check form-check-custom form-check-solid">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="is_featured" />
+                                                <label class="form-check-label" for="is_featured">
+                                                    Featured
+                                                </label>
+                                            </div>
+
+                                            <label class="form-check form-check-custom form-check-solid ms-5">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="top" />
+                                                <label class="form-check-label" for="top">
+                                                    Top
+                                                </label>
+                                            </label>
+
+                                            <div class="form-check form-check-custom form-check-solid ms-5">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="popular" />
+                                                <label class="form-check-label" for="popular">
+                                                    Popular
+                                                </label>
+                                            </div>
+
+                                            <div class="form-check form-check-custom form-check-solid ms-5">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="breaking" />
+                                                <label class="form-check-label" for="breaking">
+                                                    Breaking
+                                                </label>
+                                            </div>
+
+                                            <div class="form-check form-check-custom form-check-solid ms-5">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="recent" />
+                                                <label class="form-check-label" for="recent">
+                                                    Recent
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 fv-row mb-5">
+                                        <label class="required fs-5 fw-bold mb-2">Thumbnail</label>
+                                        <input type="file"
+                                            class="form-control form-control-solid @error('thumbnail') is-invalid @enderror"
+                                            name="thumbnail" />
+                                        @error('thumbnail')
+                                            <span class="text-danger mt-2">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+
+                                    <div class="col-md-6 fv-row mb-5">
+                                        <label class="required fs-5 fw-bold mb-2">Images</label>
+                                        <input type="file"
+                                            class="form-control form-control-solid @error('images') is-invalid @enderror"
+                                            name="images" />
+                                        @error('images')
                                             <span class="text-danger mt-2">{{ $message }}</span>
                                         @enderror
                                     </div>

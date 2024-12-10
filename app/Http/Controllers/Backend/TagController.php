@@ -43,7 +43,7 @@ class TagController extends Controller
 
         $input = [
             'title' => $request->title,
-            'title' => Str::slug($request->title),
+            'slug' => Str::slug($request->title),
             'details' => $request->details,
             'status' => $request->filled('status') ? Tag::STATUS_ACTIVE : Tag::STATUS_DEACTIVE,
             'created_by' => Auth::user()->id,
@@ -51,11 +51,8 @@ class TagController extends Controller
         ];
 
         try {
-
             Tag::create($input);
-
             notify()->success("Tag created successfully", "Success");
-
             return to_route('tags.index');
         } catch (Exception $exception) {
             notify()->success("Something error found! Please try again", "Error");
@@ -92,7 +89,7 @@ class TagController extends Controller
 
         $input = [
             'title' => $request->title,
-            'title' => Str::slug($request->title),
+            'slug' => Str::slug($request->title),
             'details' => $request->details,
             'status' => $request->filled('status') ? Tag::STATUS_ACTIVE : Tag::STATUS_DEACTIVE,
             'created_by' => Auth::user()->id,

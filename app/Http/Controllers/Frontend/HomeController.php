@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Resort;
 use App\Models\Service;
 use Illuminate\Http\Request;
 
@@ -10,7 +11,23 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('frontend.home');
+        $resorts = Resort::latest()->where('status', '=', Resort::STATUS_ACTIVE)->get();
+
+        return view('frontend.home', compact('resorts'));
+    }
+
+    public function showResortPage()
+    {
+        $resorts = Resort::latest()->where('status', '=', Resort::STATUS_ACTIVE)->get();
+
+        return view('frontend.pages.resorts.index', compact('resorts'));
+    }
+
+    public function showResortBySlug(string $slug)
+    {
+        $resort = Resort::latest()->where('slug', '=', $slug)->first();
+
+        return view('frontend.pages.resorts.single-resort', compact('resort'));
     }
 
     public function showContactPage()

@@ -1,15 +1,11 @@
 <?php
 
-if (!function_exists('DummyFunction')) {
+use App\Repositories\ResortRepository;
 
-    /**
-     * description
-     *
-     * @param
-     * @return
-     */
-    function DummyFunction()
+if (!function_exists('getResorts')) {
+    function getResorts()
     {
-
+        $repository = app(ResortRepository::class);
+        return $repository->getActiveResorts();
     }
 }

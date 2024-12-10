@@ -5,8 +5,18 @@
     <!--end::Title-->
 
     <!--begin::Toolbar  -->
-    <x-backend.toolbar title="Add resort" :breadcrumbs="[['label' => 'Home', 'url' => '/dashboard'], ['label' => 'Add resort']]" buttonIcon="bi bi-list" buttonText="Resort List"
-        buttonUrl="{{ route('resorts.index') }}" />
+    @php
+        $isEdit = isset($resort);
+        $title = $isEdit ? 'Edit resort' : 'Add resort';
+        $breadcrumbs = [
+            ['label' => 'Home', 'url' => '/dashboard'],
+            ['label' => 'Resort management'],
+            ['label' => $title],
+        ];
+    @endphp
+
+    <x-backend.toolbar :title="$title" :breadcrumbs="$breadcrumbs" buttonIcon="bi bi-list" buttonText="Resort List"
+        :buttonUrl="route('resorts.index')" />
     <!--end::Toolbar -->
 
     <div class="post d-flex flex-column-fluid" id="kt_post">
@@ -32,7 +42,7 @@
 
                                 <div class="row mb-5">
 
-                                    <div class="col-md-6 fv-row mb-5">
+                                    <div class="col-md-12 fv-row mb-5">
                                         <label class="required fs-5 fw-bold mb-2">Title</label>
                                         <input type="text" required
                                             class="form-control form-control-solid @error('title') is-invalid @enderror"
@@ -43,30 +53,10 @@
                                         @enderror
                                     </div>
 
-                                    <div class="col-md-6 fv-row mb-5">
-                                        <label class="required fs-5 fw-bold mb-2">Thumbnail</label>
-                                        <input type="file" required
-                                            class="form-control form-control-solid @error('thumbnail') is-invalid @enderror"
-                                            name="thumbnail" />
-                                        @error('thumbnail')
-                                            <span class="text-danger mt-2">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-
-                                    <div class="col-md-6 fv-row mb-5">
-                                        <label class="required fs-5 fw-bold mb-2">Images</label>
-                                        <input type="file" multiple
-                                            class="form-control form-control-solid @error('images') is-invalid @enderror"
-                                            name="images[]" />
-                                        @error('images')
-                                            <span class="text-danger mt-2">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-
                                     <div class="col-md-12 fv-row mb-5">
                                         <label class="required fs-5 fw-bold mb-2">Short Description</label>
-                                        <textarea class="form-control form-control-solid" placeholder="Enter short description" name="short_description" required
-                                            data-kt-autosize="true">{{ $resort->short_description ?? old('short_description') }}</textarea>
+                                        <textarea class="form-control form-control-solid" placeholder="Enter short description" name="short_description"
+                                            required data-kt-autosize="true">{{ $resort->short_description ?? old('short_description') }}</textarea>
                                         @error('short_description')
                                             <span class="text-danger mt-2">{{ $message }}</span>
                                         @enderror
@@ -77,6 +67,45 @@
                                         <textarea class="form-control form-control-solid" placeholder="Enter details" name="details" required
                                             data-kt-autosize="true">{{ $resort->details ?? old('details') }}</textarea>
                                         @error('details')
+                                            <span class="text-danger mt-2">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+
+                                    <div class="col-md-6 fv-row mb-5">
+                                        <label class="required fs-5 fw-bold mb-2">Thumbnail</label>
+                                        <input type="file"
+                                            class="form-control form-control-solid @error('thumbnail') is-invalid @enderror"
+                                            name="thumbnail" />
+                                        @isset($resort->thumbnail)
+                                            <div class="d-flex align-items-center mt-2">
+                                                <div class="symbol symbol-45px me-5">
+                                                    <img src="{{ asset('uploads/resorts/' . $resort->thumbnail) }}"
+                                                        alt="{{ $resort->title }}" />
+                                                </div>
+                                            </div>
+                                        @endisset
+                                        @error('thumbnail')
+                                            <span class="text-danger mt-2">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+
+                                    <div class="col-md-6 fv-row mb-5">
+                                        <label class="required fs-5 fw-bold mb-2">Images</label>
+                                        <input type="file" multiple
+                                            class="form-control form-control-solid @error('images') is-invalid @enderror"
+                                            name="images[]" />
+                                        <div class="d-flex align-items-center mt-2">
+                                            <div class="symbol symbol-45px me-5">
+                                                @if (isset($resort->images) && !empty(json_decode($resort->images)))
+                                                    @foreach (json_decode($resort->images) as $image)
+                                                        <img class="ms-2"
+                                                            src="{{ asset('uploads/resorts/' . $image) }}"
+                                                            alt="{{ $resort->title }}" />
+                                                    @endforeach
+                                                @endif
+                                            </div>
+                                        </div>
+                                        @error('images')
                                             <span class="text-danger mt-2">{{ $message }}</span>
                                         @enderror
                                     </div>

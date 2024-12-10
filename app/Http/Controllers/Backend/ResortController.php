@@ -55,6 +55,7 @@ class ResortController extends Controller
         ];
 
         $thumbnail = $request->file('thumbnail');
+
         if ($thumbnail) {
             $thumbnailName = md5(Str::random(30) . time() . '_' . $request->file('thumbnail')) . '.' . $request->file('thumbnail')->getClientOriginalExtension();
             $request->file('thumbnail')->move('uploads/resorts/', $thumbnailName);
@@ -92,7 +93,6 @@ class ResortController extends Controller
                 }
             }
 
-            dd($exception);
             notify()->success("Something error found! Please try again", "Error");
             return back();
         }
@@ -120,17 +120,17 @@ class ResortController extends Controller
     public function update(Request $request, Resort $resort)
     {
         $request->validate([
-            'title' => 'required|string|max:255|unique:resorts',
+            'title' => 'required|string|max:255|unique:resorts,title,' . $resort->id,
             'short_description' => 'required|string|max:255',
-            'thumbnail' => 'required',
-            'images' => 'required',
+            'thumbnail' => 'nullable',
+            'images' => 'nullable',
             'details' => 'required|string',
             'status' => 'required'
         ]);
 
         $input = [
             'title' => $request->title,
-            'title' => Str::slug($request->title),
+            'slug' => Str::slug($request->title),
             'short_description' => $request->short_description,
             'details' => $request->details,
             'status' => $request->filled('status'),
@@ -138,18 +138,33 @@ class ResortController extends Controller
             'updated_at' => Carbon::now(),
         ];
 
-        $images = $request->file('images');
         $thumbnail = $request->file('thumbnail');
 
         if ($thumbnail) {
             $thumbnailName = md5(Str::random(30) . time() . '_' . $request->file('thumbnail')) . '.' . $request->file('thumbnail')->getClientOriginalExtension();
             $request->file('thumbnail')->move('uploads/resorts/', $thumbnailName);
-
-            if (file_exists('uploads/resorts/' . $resort->thumbnail) && !empty($resort->thumbnail)) {
-                unlink('uploads/resorts/' . $resort->thumbnail);
-            }
-
             $input['thumbnail'] = $thumbnailName;
+
+            if (!empty($resort->thumbnail) && file_exists(public_path('uploads/resorts/' . $resort->thumbnail))) {
+                unlink(public_path('uploads/resorts/' . $resort->thumbnail));
+            }
+        }
+
+        if ($request->hasFile('images')) {
+            $uploadedImages = [];
+            foreach ($request->file('images') as $image) {
+                $imageName = md5(Str::random(5) . time() . '_' . $image) . '.' . $image->getClientOriginalExtension();
+                $image->move('uploads/resorts/', $imageName);
+                $uploadedImages[] = $imageName;
+
+                if (!empty($image) && file_exists(public_path('uploads/resorts/' . $image))) {
+                    unlink(public_path('uploads/resorts/' . $image));
+                }
+            }
+        }
+
+        if (!empty($uploadedImages)) {
+            $input['images'] = json_encode($uploadedImages);
         }
 
         try {
@@ -160,6 +175,19 @@ class ResortController extends Controller
 
             return to_route('resorts.index');
         } catch (Exception $exception) {
+            // Delete a single file if it exists
+            if (!empty($input) && file_exists(public_path('uploads/resorts/' . $input['thumbnail']))) {
+                unlink(public_path('uploads/resorts/' . $input['thumbnail']));
+            }
+
+            // Delete multiple files in the uploadedImages array if they exist
+            foreach ($uploadedImages as $uploadedImage) {
+                if (!empty($uploadedImage) && file_exists(public_path('uploads/resorts/' . $uploadedImage))) {
+                    unlink(public_path('uploads/resorts/' . $uploadedImage));
+                }
+            }
+            dd($exception);
+
             notify()->success("Something error found! Please try again", "Error");
             return back();
         }

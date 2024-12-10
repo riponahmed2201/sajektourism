@@ -5,7 +5,11 @@
     <!--end::Title-->
 
     <!--begin::Toolbar  -->
-    <x-backend.toolbar title="Resort show" :breadcrumbs="[['label' => 'Home', 'url' => '/dashboard'], ['label' => 'Resort show']]" buttonIcon="bi bi-list" buttonText="Resort List"
+    <x-backend.toolbar title="Resort show" :breadcrumbs="[
+        ['label' => 'Home', 'url' => '/dashboard'],
+        ['label' => 'Resort management'],
+        ['label' => 'Resort show'],
+    ]" buttonIcon="bi bi-list" buttonText="Resort List"
         buttonUrl="{{ route('resorts.index') }}" />
     <!--end::Toolbar -->
 
@@ -21,10 +25,21 @@
                         <!--begin::Body-->
                         <div class="card-body py-8">
                             <div class="row mb-5">
-                                <div class="col-md-6 fv-row mb-5">
+                                <div class="col-md-12 fv-row mb-5">
                                     <label class="fs-5 fw-bold mb-2">Title</label>
                                     <input type="text" class="form-control form-control-solid" disabled
                                         value="{{ $resort->title }}" />
+                                </div>
+
+                                <div class="col-md-12 fv-row mb-5">
+                                    <label class="fs-5 fw-bold mb-2">Short Description</label>
+                                    <input type="text" class="form-control form-control-solid" disabled
+                                        value="{{ $resort->short_description }}" />
+                                </div>
+
+                                <div class="col-md-12 fv-row mb-5">
+                                    <label class="fs-5 fw-bold mb-2">Details</label>
+                                    <textarea class="form-control form-control-solid" disabled data-kt-autosize="true">{{ $resort->details }}</textarea>
                                 </div>
 
                                 <div class="col-md-6 fv-row mb-5">
@@ -38,24 +53,17 @@
                                 </div>
 
                                 <div class="col-md-6 fv-row mb-5">
-                                    <label class="fs-5 fw-bold mb-2">Album</label>
+                                    <label class="fs-5 fw-bold mb-2">Images</label>
                                     <div class="d-flex align-items-center">
                                         <div class="symbol symbol-45px me-5">
-                                            <img src="{{ asset('uploads/resorts/' . $resort->album) }}"
-                                                alt="{{ $resort->title }}" />
+                                            @if (!empty(json_decode($resort->images)))
+                                                @foreach (json_decode($resort->images) as $image)
+                                                    <img class="ms-2" src="{{ asset('uploads/resorts/' . $image) }}"
+                                                        alt="{{ $resort->title }}" />
+                                                @endforeach
+                                            @endif
                                         </div>
                                     </div>
-                                </div>
-
-                                <div class="col-md-12 fv-row mb-5">
-                                    <label class="fs-5 fw-bold mb-2">Short Description</label>
-                                    <input type="text" class="form-control form-control-solid" disabled
-                                        value="{{ $resort->short_description }}" />
-                                </div>
-
-                                <div class="col-md-12 fv-row mb-5">
-                                    <label class="fs-5 fw-bold mb-2">Details</label>
-                                    <textarea class="form-control form-control-solid" disabled data-kt-autosize="true">{{ $resort->details }}</textarea>
                                 </div>
 
                                 <div class="col-md-2 fv-row mb-5">

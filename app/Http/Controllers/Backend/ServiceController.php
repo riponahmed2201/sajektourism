@@ -18,7 +18,6 @@ class ServiceController extends Controller
     public function index()
     {
         $services = Service::latest()->get();
-
         return view('backend.services.index', compact('services'));
     }
 
@@ -44,9 +43,9 @@ class ServiceController extends Controller
 
         $input = [
             'title' => $request->title,
-            'title' => Str::slug($request->title),
+            'slug' => Str::slug($request->title),
             'details' => $request->details,
-            'status' => $request->filled('status'),
+            'status' => $request->filled('status') ? Service::STATUS_ACTIVE : Service::STATUS_DEACTIVE,
             'created_by' => Auth::user()->id,
             'updated_by' => Auth::user()->id,
             'created_at' => Carbon::now(),
@@ -61,13 +60,15 @@ class ServiceController extends Controller
         }
 
         try {
-
             Service::create($input);
-
             notify()->success("Service created successfully", "Success");
-
             return to_route('services.index');
         } catch (Exception $exception) {
+
+            if (!empty($input) && file_exists(public_path('uploads/services/' . $input['image']))) {
+                unlink(public_path('uploads/services/' . $input['image']));
+            }
+
             notify()->success("Something error found! Please try again", "Error");
             return back();
         }
@@ -95,7 +96,7 @@ class ServiceController extends Controller
     public function update(Request $request, Service $service)
     {
         $request->validate([
-            'title' => 'required|string|max:255|unique:services',
+            'title' => 'required|string|max:255|unique:services,title,' . $service->id,
             'image' => 'required',
             'details' => 'required|string',
             'status' => 'required'
@@ -103,9 +104,9 @@ class ServiceController extends Controller
 
         $input = [
             'title' => $request->title,
-            'title' => Str::slug($request->title),
+            'slug' => Str::slug($request->title),
             'details' => $request->details,
-            'status' => $request->filled('status'),
+            'status' => $request->filled('status') ? Service::STATUS_ACTIVE : Service::STATUS_DEACTIVE,
             'created_by' => Auth::user()->id,
             'updated_by' => Auth::user()->id,
             'created_at' => Carbon::now(),
@@ -125,13 +126,15 @@ class ServiceController extends Controller
         }
 
         try {
-
             $service->update($input);
-
             notify()->success("Service updated successfully", "Success");
-
             return to_route('services.index');
         } catch (Exception $exception) {
+
+            if (!empty($input) && file_exists(public_path('uploads/services/' . $input['image']))) {
+                unlink(public_path('uploads/services/' . $input['image']));
+            }
+
             notify()->success("Something error found! Please try again", "Error");
             return back();
         }
