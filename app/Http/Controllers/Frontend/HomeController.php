@@ -56,4 +56,9 @@ class HomeController extends Controller
     {
         return view('frontend.pages.daily-news.single-news');
     }
+
+    public function showTvShowPage()
+    {
+        return view('frontend.pages.tv-shows.index');
+    }
 }
